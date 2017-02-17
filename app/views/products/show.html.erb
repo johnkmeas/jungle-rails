@@ -24,8 +24,8 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
-
-      <div class="col-sm-4">
+    <% if @product_review  %>
+      <div class="col-sm-6 col-sm-offset-6">
         <h3>Ratings</h3>
       <!--   <%= pp @user.inspect %>
         <%= pp @product_review.inspect %> -->
@@ -36,11 +36,11 @@
           <dd><%= @product_review.description %></dd>
           <dt>By</dt>
           <dd><%= @user.find(@product_review).name %></dd>
-          <dt>on</dt>
-          <dd><%= @product_review.created_at %></dd>
+
+          <dd>posted on <%= @product_review.created_at %></dd>
         </dl>
       </div>
-
+    <% end %>
     </div>
 
   </article>
