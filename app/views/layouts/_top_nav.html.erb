@@ -40,9 +40,14 @@
           </ul>
         </li>
         <li>
+        <!-- TODO implement better user experience for empty cart -->
+        <% if cart.size == 0%>
+          <%= fa_icon "shopping-cart" %> My Cart (empty)
+        <% else %>
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
+        <% end %>
         </li>
       </ul>
       <ul class="login nav navbar-nav navbar-right">
