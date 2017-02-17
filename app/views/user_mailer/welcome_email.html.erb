@@ -9,9 +9,20 @@
       You have successfully signed up to example.com,
       your username is: <%= @user.email %>.<br>
     </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
-    </p>
+    <table>
+      <tbody>
+        <% @order.line_items.each do |item| %>
+          <%= render 'item', item: item %>
+        <% end %>
+
+      Your total is:
+      <tr>
+        <td>
+          <%= humanized_money_with_symbol  @order.total %>
+        </td>
+      </tr>
+      </tbody>
+    </table>
     <p>Thanks for joining and have a great day!</p>
   </body>
 </html>

@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     if order.valid?
       empty_cart!
       # Send user an email after order is create
-      UserMailer.welcome_email(current_user).deliver_later
+      UserMailer.welcome_email(current_user, order).deliver_later
 
       redirect_to order, notice: 'Your Order has been placed.'
     else
