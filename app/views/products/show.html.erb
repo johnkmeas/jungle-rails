@@ -25,45 +25,40 @@
         </dl>
       </div>
 
-<%= form_for [@product, @product.reviews.new]  do |f| %>
-  Leave a review:
-  <ul>
+<%= form_for ([@product, @product.reviews.build]) do |f| %>
 
-      <li>
+
         <%= f.label :rating %>
         <%= f.select(:rating, [['1', 1], ['2', 2],['3', 3], ['4', 4], ['5', 5]]) %>
-      </li>
-      <li>
+
         <%= f.label :description %>
         <%= f.text_area :description %>
-      </li>
-      <li>
-        <%= f.submit %>
-      </li>
 
-  </ul>
+        <%= f.submit %>
+
 <% end %>
 
 
 
 
-    <% if @product_review  %>
+
       <div class="col-sm-6 col-sm-offset-6">
         <h3>Ratings</h3>
-      <!--   <%= pp @user.inspect %>
-        <%= pp @product_review.inspect %> -->
-        <dl class="dl-verticle">
-          <dt>rating</dt>
-          <dd><%= @product_review.rating %></dd>
-          <dt>description</dt>
-          <dd><%= @product_review.description %></dd>
-          <dt>By</dt>
-          <dd><%= @user.find(@product_review).name %></dd>
 
-          <dd>posted on <%= @product_review.created_at %></dd>
+        <% @product.reviews.each do |review| %>
+          <dl class="dl-verticle">
+          <dt>rating</dt>
+          <dd><%= review.rating %></dd>
+          <dt>description</dt>
+          <dd><%= review.description %></dd>
+          <dt>By</dt>
+          <dd><%= pp review.user["name"].inspect %></dd>
+
+          <dd>posted on </dd>
         </dl>
+        <% end %>
       </div>
-    <% end %>
+
     </div>
 
   </article>
