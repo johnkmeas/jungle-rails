@@ -24,6 +24,29 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+
+<%= form_for [@product, @product.reviews.new]  do |f| %>
+  Leave a review:
+  <ul>
+
+      <li>
+        <%= f.label :rating %>
+        <%= f.select(:rating, [['1', 1], ['2', 2],['3', 3], ['4', 4], ['5', 5]]) %>
+      </li>
+      <li>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </li>
+      <li>
+        <%= f.submit %>
+      </li>
+
+  </ul>
+<% end %>
+
+
+
+
     <% if @product_review  %>
       <div class="col-sm-6 col-sm-offset-6">
         <h3>Ratings</h3>
