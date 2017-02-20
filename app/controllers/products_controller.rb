@@ -6,13 +6,16 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @review = Review.all
+    # byebug
+    # @review = Review.new
+    # @review = Review.all
     # begin
     #   @review = Review.find params[:id]
     # rescue ActiveRecord::RecordNotFound
     #   @review = nil
     # end
-    @user = User.all
+
+    # @review = Review.all
     # begin
   end
 
