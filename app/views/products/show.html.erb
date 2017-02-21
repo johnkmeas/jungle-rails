@@ -45,7 +45,7 @@
               <dt>description</dt>
               <dd><%= review.description %></dd>
               <dt>By</dt>
-              <dd><%=  %></dd>
+              <dd><%= review.user.name %></dd>
               <dd>posted on <%= review.created_at %></dd>
 
               <% if current_user && current_user.id == review.user_id %>
