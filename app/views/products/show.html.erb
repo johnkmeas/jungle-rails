@@ -36,11 +36,13 @@
       <% end %>
 
       <div class="col-sm-6 col-sm-offset-6">
-        <h3>Ratings</h3>
+        <h1 class="rating">Ratings <%= @product.reviews.average(:rating) ? @product.reviews.average(:rating) : 0 %></h1>
+
+
+
           <% @product.reviews.all.reverse_each do |review| %>
             <div class="rating">
               <dl class="dl-vertical">
-              <dt>rating</dt>
               <dd><%= review.rating %></dd>
               <dt>description</dt>
               <dd><%= review.description %></dd>

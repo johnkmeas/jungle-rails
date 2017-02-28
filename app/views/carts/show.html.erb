@@ -4,6 +4,10 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if(cart.count == 0) %>
+  <h2>Hey its empty!</h2>
+  <% else %>
+  <% @cart_total = 0 %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -15,8 +19,8 @@
         </tr>
       </thead>
       <tbody>
-        <% @cart_total = 0 %>
-        <% cart.each do |product_id, details| %>
+
+        <% cart.each  do |product_id, details| %>
           <%= render 'item', product_id: product_id, details: details %>
         <% end %>
       </tbody>
@@ -49,5 +53,6 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 
 </section>

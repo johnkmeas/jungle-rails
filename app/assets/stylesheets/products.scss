@@ -1,3 +1,7 @@
+.navbar {
+  background-color: orange;
+}
+
 main section.products-index,
 main section.categories-show {
 
@@ -18,6 +22,8 @@ main section.categories-show {
       padding:       15px;
       padding-bottom: 80px;
       margin-top:    20px;
+
+      background-color: lighten(blue, 40);
       // margin:        10px;
 
       header img {
@@ -72,6 +78,24 @@ main section.categories-show {
         }
       }
 
+      .rating {
+        background-color: orange;
+      }
+      .rating {
+        animation: blink-animation 500ms steps(5, start) infinite;
+        -webkit-animation: blink-animation 500ms steps(5, start) infinite;
+      }
+      @keyframes blink-animation {
+        to {
+          visibility: hidden;
+        }
+      }
+      @-webkit-keyframes blink-animation {
+        to {
+          visibility: hidden;
+        }
+      }
+
     }
   }
 }
@@ -83,7 +107,9 @@ main section.products-show {
       max-width: 100%;
     }
     .rating {
-      border: solid 2px pink;
+      padding: 10px;
+      background-color: lighten(orange, 15);
+      border: solid 3px lighten(blue, 20);
       margin-top: 10px;
     }
   }
